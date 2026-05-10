@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Post</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <h1>Create Post ✨</h1>
+
+        <div class="nav-links">
+
+            <a href="/feed">Feed</a>
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="card">
+
+            <form
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <textarea
+                    name="content"
+                    placeholder="What's on your mind?"
+                    rows="5"
+                ></textarea>
+
+                <label>Upload Image</label>
+
+                <input
+                    type="file"
+                    name="image"
+                >
+
+                <br><br>
+
+                <label>Upload Video</label>
+                <button type="submit">
+                    Post Now 🚀
+                </button>
+</html>

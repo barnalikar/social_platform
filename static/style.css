@@ -1,0 +1,80 @@
+body {
+    color: #6f044a;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.nav-links a {
+    color: rgb(160, 3, 95);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.card {
+    background: #af558f;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px #3e004d;
+    margin-bottom: 25px;
+}
+
+textarea,
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #98457a;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #6f044a;
+    color: #919191;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: rgb(160, 3, 95);
+}
+
+.post-image,
+.post-video {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 15px;
+}
+
+.action-links {
+    margin-top: 15px;
+}
+
+.action-links a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: #3e004d;
+    font-weight: bold;
+}
+
+.comments {
+    margin-top: 20px;
+}

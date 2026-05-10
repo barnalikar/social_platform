@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feed</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <h1>🌍 SocialHub</h1>
+
+        <div class="nav-links">
+
+            <a href="/feed">Feed</a>
+
+            <a href="/create-post">
+                Create Post
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- FRIEND SECTION -->
+
+        <div class="friend-box">
+
+            <h2>People You May Know</h2>
+
+            {% for user in users %}
+
+                {% if user.id != current_user.id %}
+
+                    <p>
+
+                        {{ user.username }}
+
+                        <a href="/add-friend/{{ user.id }}">
+                            Add Friend
+                        </a>
+
+                    </p>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+        <!-- POSTS -->
+
+        {% for post in posts %}
+
+            <div class="card">
+
+                <h2>
+                    {{ post.content }}
+                </h2>
+
+                <!-- IMAGE -->
+
+                {% if post.image %}
+
+                    <img
+                        class="post-image"
+                        src="{{ url_for('static', filename='uploads/' + post.image) }}"
+                    >
+
+                {% endif %}
+
+                <!-- VIDEO -->
+
+                {% if post.video %}
+
+                    <video
+                        class="post-video"
+                        controls
+                    >
+
+                        <source
+                            src="{{ url_for('static', filename='uploads/' + post.video) }}"
+                        >
+
+                    </video>
+
+                {% endif %}
+
+                <!-- ACTION BUTTONS -->
+
+                <div class="action-links">
+
+                    <a href="/like/{{ post.id }}">
+                        👍 Like ({{ post.likes }})
+                    </a>
+
+                    <a href="/share/{{ post.id }}">
+                        🔁 Share ({{ post.shares }})
+                    </a>
+
+                </div>
+
+                <!-- COMMENTS -->
+
+                <div class="comments">
+
+                    <h3>Comments</h3>
+
+                    {% for comment in post.comments %}
+
+                        <p>
+                            💬 {{ comment.text }}
+                        </p>
+
+                    {% endfor %}
+
+                    <!-- COMMENT FORM -->
+
+                    <form
+                        method="POST"
+                        action="/comment/{{ post.id }}"
+                    >
+
+                        <input
+                            type="text"
+                            name="text"
+                            placeholder="Write a comment..."
+                        >
+
+                        <button type="submit">
+                            Comment
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>
